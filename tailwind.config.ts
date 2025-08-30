@@ -89,6 +89,8 @@ export default {
 				'gradient-electric': 'var(--gradient-electric)',
 				'gradient-energy': 'var(--gradient-energy)',
 				'gradient-dashboard': 'var(--gradient-dashboard)',
+				'gradient-futuristic': 'var(--gradient-futuristic)',
+				'gradient-dark-electric': 'var(--gradient-dark-electric)',
 			},
 			boxShadow: {
 				'electric': 'var(--pulse-electric)',

@@ -8,9 +8,17 @@ import heroImage from "@/assets/piezo-sidewalk-hero.jpg";
 
 export const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gradient-dashboard">
+    <div className="min-h-screen bg-gradient-dark-electric relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-futuristic opacity-40"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-electric/10 rounded-full blur-3xl animate-pulse-electric"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-energy/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric/5 rounded-full blur-3xl"></div>
+      </div>
+
       {/* Header Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-electric">
+      <div className="relative overflow-hidden bg-gradient-electric/90 backdrop-blur-sm border-b border-electric/20">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -42,7 +50,7 @@ export const Dashboard = () => {
       </div>
 
       {/* Main Dashboard Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="relative max-w-7xl mx-auto px-6 py-8 z-10">
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
