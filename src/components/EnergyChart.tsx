@@ -2,18 +2,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const data = [
-  { time: '00:00', energy: 120, pedestrians: 45 },
-  { time: '02:00', energy: 80, pedestrians: 20 },
-  { time: '04:00', energy: 60, pedestrians: 15 },
-  { time: '06:00', energy: 200, pedestrians: 80 },
-  { time: '08:00', energy: 450, pedestrians: 180 },
-  { time: '10:00', energy: 380, pedestrians: 150 },
-  { time: '12:00', energy: 420, pedestrians: 165 },
-  { time: '14:00', energy: 320, pedestrians: 130 },
-  { time: '16:00', energy: 380, pedestrians: 155 },
-  { time: '18:00', energy: 520, pedestrians: 210 },
-  { time: '20:00', energy: 360, pedestrians: 145 },
-  { time: '22:00', energy: 240, pedestrians: 95 },
+  { time: '00:00', energy: 85, pedestrians: 32 },
+  { time: '02:00', energy: 45, pedestrians: 12 },
+  { time: '04:00', energy: 35, pedestrians: 8 },
+  { time: '06:00', energy: 180, pedestrians: 65 },
+  { time: '08:00', energy: 320, pedestrians: 145 },
+  { time: '10:00', energy: 280, pedestrians: 120 },
+  { time: '12:00', energy: 350, pedestrians: 155 },
+  { time: '14:00', energy: 240, pedestrians: 105 },
+  { time: '16:00', energy: 290, pedestrians: 130 },
+  { time: '18:00', energy: 380, pedestrians: 165 },
+  { time: '20:00', energy: 250, pedestrians: 110 },
+  { time: '22:00', energy: 160, pedestrians: 70 },
 ];
 
 export const EnergyChart = () => {

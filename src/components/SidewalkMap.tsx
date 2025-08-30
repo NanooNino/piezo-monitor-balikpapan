@@ -3,11 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Zap, Activity } from "lucide-react";
 
 const sidewalkData = [
-  { id: 1, name: "Jl. Sudirman", lat: -6.2088, lng: 106.8456, energy: 2.4, efficiency: 92, status: "optimal" },
-  { id: 2, name: "Jl. Thamrin", lat: -6.1944, lng: 106.8229, energy: 1.8, efficiency: 78, status: "good" },
-  { id: 3, name: "Jl. Gatot Subroto", lat: -6.2297, lng: 106.8253, energy: 3.1, efficiency: 95, status: "optimal" },
-  { id: 4, name: "Jl. Kuningan", lat: -6.2382, lng: 106.8316, energy: 1.2, efficiency: 65, status: "maintenance" },
-  { id: 5, name: "Jl. Senayan", lat: -6.2297, lng: 106.8015, energy: 2.8, efficiency: 88, status: "good" },
+  { id: 1, name: "Jl. Jenderal Sudirman", lat: -1.2379, lng: 116.8529, energy: 3.2, efficiency: 94, status: "optimal" },
+  { id: 2, name: "Jl. Ahmad Yani", lat: -1.2675, lng: 116.8314, energy: 2.1, efficiency: 82, status: "good" },
+  { id: 3, name: "Jl. MT Haryono", lat: -1.2462, lng: 116.8613, energy: 2.8, efficiency: 89, status: "optimal" },
+  { id: 4, name: "Jl. Marsma R. Iswahyudi", lat: -1.2533, lng: 116.8442, energy: 1.5, efficiency: 68, status: "maintenance" },
+  { id: 5, name: "Jl. Sepinggan", lat: -1.2174, lng: 116.8942, energy: 3.5, efficiency: 96, status: "optimal" },
+  { id: 6, name: "Jl. Soekarno Hatta", lat: -1.2281, lng: 116.8456, energy: 2.4, efficiency: 85, status: "good" },
 ];
 
 export const SidewalkMap = () => {

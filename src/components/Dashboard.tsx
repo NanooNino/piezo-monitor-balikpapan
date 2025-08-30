@@ -28,10 +28,10 @@ export const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-white mb-2">
-                  Dashboard Monitoring Trotoar Piezoelektrik
+                  Dashboard Monitoring Trotoar Piezoelektrik Balikpapan
                 </h1>
                 <p className="text-white/80 text-lg">
-                  Sistem monitoring energi real-time untuk infrastruktur kota pintar
+                  Sistem monitoring energi real-time untuk infrastruktur kota pintar Balikpapan
                 </p>
               </div>
               <div className="flex items-center space-x-4">
@@ -55,7 +55,7 @@ export const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             title="Total Energi Hari Ini"
-            value="12.4"
+            value="8.7"
             unit="kWh"
             change={8.2}
             icon={Zap}
@@ -63,7 +63,7 @@ export const Dashboard = () => {
           />
           <StatCard
             title="Efisiensi Rata-rata"
-            value="87"
+            value="86"
             unit="%"
             change={3.1}
             icon={Activity}
@@ -71,14 +71,14 @@ export const Dashboard = () => {
           />
           <StatCard
             title="Penghematan Biaya"
-            value="Rp 2.4"
+            value="Rp 1.8"
             unit="juta"
             change={12.5}
             icon={DollarSign}
           />
           <StatCard
             title="Total Pejalan Kaki"
-            value="1,248"
+            value="892"
             unit="orang"
             change={-2.1}
             icon={Users}
@@ -104,21 +104,21 @@ export const Dashboard = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Investasi Total</span>
-                  <span className="font-semibold">Rp 2.4 Miliar</span>
+                  <span className="font-semibold">Rp 1.8 Miliar</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Penghematan/Bulan</span>
-                  <span className="font-semibold text-success">Rp 72 Juta</span>
+                  <span className="font-semibold text-success">Rp 54 Juta</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Payback Period</span>
-                  <span className="font-semibold">2.8 Tahun</span>
+                  <span className="font-semibold">3.1 Tahun</span>
                 </div>
                 <div className="pt-4 border-t">
                   <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-gradient-energy h-2 rounded-full w-1/3"></div>
+                    <div className="bg-gradient-energy h-2 rounded-full w-[28%]"></div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2">Progress: 33% dari target ROI</p>
+                  <p className="text-xs text-muted-foreground mt-2">Progress: 28% dari target ROI</p>
                 </div>
               </div>
             </CardContent>
@@ -136,11 +136,11 @@ export const Dashboard = () => {
                 <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
                   <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
                   <div className="flex-1">
-                    <div className="font-medium text-sm">Jl. Kuningan - Low Performance</div>
-                    <div className="text-xs text-muted-foreground">Efisiensi turun 15% dari normal</div>
+                    <div className="font-medium text-sm">Jl. Marsma R. Iswahyudi - Low Performance</div>
+                    <div className="text-xs text-muted-foreground">Efisiensi turun 18% dari normal</div>
                   </div>
                   <Badge variant="outline" className="text-xs border-warning text-warning">
-                    Medium
+                    High
                   </Badge>
                 </div>
                 
@@ -148,7 +148,7 @@ export const Dashboard = () => {
                   <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">Maintenance Terjadwal</div>
-                    <div className="text-xs text-muted-foreground">3 lokasi - minggu depan</div>
+                    <div className="text-xs text-muted-foreground">2 lokasi - minggu depan (Jl. Ahmad Yani & Jl. Soekarno Hatta)</div>
                   </div>
                   <Badge variant="secondary" className="text-xs">
                     Scheduled
@@ -159,7 +159,7 @@ export const Dashboard = () => {
                   <div className="w-2 h-2 bg-success rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">All Systems Operational</div>
-                    <div className="text-xs text-muted-foreground">4 dari 5 lokasi berjalan optimal</div>
+                    <div className="text-xs text-muted-foreground">5 dari 6 lokasi berjalan optimal</div>
                   </div>
                   <Badge className="text-xs bg-success text-success-foreground">
                     Good
