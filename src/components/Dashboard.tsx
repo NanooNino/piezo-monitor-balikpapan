@@ -1,3 +1,4 @@
+import React from "react";
 import { StatCard } from "./StatCard";
 import { EnergyChart } from "./EnergyChart";
 import { RegionPerformance } from "./RegionPerformance";
