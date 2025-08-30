@@ -80,7 +80,7 @@ export const Dashboard = () => {
           />
           <StatCard
             title="Total Trotoar Aktif"
-            value="4"
+            value="23"
             unit="lokasi"
             change={-2.1}
             icon={Users}
