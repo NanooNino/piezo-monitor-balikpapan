@@ -79,9 +79,9 @@ export const Dashboard = () => {
             icon={DollarSign}
           />
           <StatCard
-            title="Total Pejalan Kaki"
-            value="892"
-            unit="orang"
+            title="Total Trotoar Aktif"
+            value="4"
+            unit="lokasi"
             change={-2.1}
             icon={Users}
           />
