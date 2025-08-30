@@ -30,7 +30,7 @@ export const SidewalkMap = () => {
       case "good":
         return "Baik";
       case "maintenance":
-        return "Perlu Maintenance";
+        return "Maintenance";
       default:
         return "Unknown";
     }

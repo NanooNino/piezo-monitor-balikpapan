@@ -1,5 +1,6 @@
 import { StatCard } from "./StatCard";
 import { EnergyChart } from "./EnergyChart";
+import { RegionPerformance } from "./RegionPerformance";
 import { SidewalkMap } from "./SidewalkMap";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -91,6 +92,11 @@ export const Dashboard = () => {
           <SidewalkMap />
         </div>
 
+        {/* Regional Performance */}
+        <div className="grid grid-cols-1 gap-6 mb-8">
+          <RegionPerformance />
+        </div>
+
         {/* ROI Analysis */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
@@ -136,7 +142,7 @@ export const Dashboard = () => {
                 <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
                   <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
                   <div className="flex-1">
-                    <div className="font-medium text-sm">Jl. Pupuk Raya - Low Performance</div>
+                    <div className="font-medium text-sm">Jl. Pupuk Raya - Maintenance</div>
                     <div className="text-xs text-muted-foreground">Efisiensi turun 18% dari normal</div>
                   </div>
                   <Badge variant="outline" className="text-xs border-warning text-warning">
