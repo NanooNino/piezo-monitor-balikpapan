@@ -3,12 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { MapPin, Zap, Activity } from "lucide-react";
 
 const sidewalkData = [
-  { id: 1, name: "Jl. Jenderal Sudirman", lat: -1.2379, lng: 116.8529, energy: 3.2, efficiency: 94, status: "optimal" },
-  { id: 2, name: "Jl. Ahmad Yani", lat: -1.2675, lng: 116.8314, energy: 2.1, efficiency: 82, status: "good" },
-  { id: 3, name: "Jl. MT Haryono", lat: -1.2462, lng: 116.8613, energy: 2.8, efficiency: 89, status: "optimal" },
-  { id: 4, name: "Jl. Marsma R. Iswahyudi", lat: -1.2533, lng: 116.8442, energy: 1.5, efficiency: 68, status: "maintenance" },
-  { id: 5, name: "Jl. Sepinggan", lat: -1.2174, lng: 116.8942, energy: 3.5, efficiency: 96, status: "optimal" },
-  { id: 6, name: "Jl. Soekarno Hatta", lat: -1.2281, lng: 116.8456, energy: 2.4, efficiency: 85, status: "good" },
+  { id: 1, name: "Jl. Ahmad Yani", lat: -1.2675, lng: 116.8314, energy: 2.8, efficiency: 89, status: "optimal" },
+  { id: 2, name: "Jl. Jenderal Sudirman", lat: -1.2379, lng: 116.8529, energy: 3.2, efficiency: 94, status: "optimal" },
+  { id: 3, name: "Jl. MT Haryono", lat: -1.2462, lng: 116.8613, energy: 2.1, efficiency: 82, status: "good" },
+  { id: 4, name: "Jl. Pupuk Raya", lat: -1.2533, lng: 116.8442, energy: 1.5, efficiency: 68, status: "maintenance" },
 ];
 
 export const SidewalkMap = () => {
@@ -39,7 +37,7 @@ export const SidewalkMap = () => {
   };
 
   return (
-    <Card className="col-span-1">
+    <Card className="col-span-1 bg-gradient-card-glass border-border/50 backdrop-blur-sm">
       <CardHeader>
         <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
           <MapPin className="h-5 w-5 text-primary" />
@@ -54,7 +52,7 @@ export const SidewalkMap = () => {
           {sidewalkData.map((sidewalk) => (
             <div 
               key={sidewalk.id}
-              className="flex items-center justify-between p-3 rounded-lg border bg-card/50 hover:bg-card transition-colors cursor-pointer"
+              className="flex items-center justify-between p-3 rounded-lg border border-border/30 bg-gradient-card-glass/50 hover:bg-gradient-card-glass transition-all duration-300 cursor-pointer backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3">
                 <div className="flex-shrink-0">

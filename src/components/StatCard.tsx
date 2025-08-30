@@ -25,13 +25,13 @@ export const StatCard = ({
   const getVariantStyles = () => {
     switch (variant) {
       case "electric":
-        return "bg-gradient-electric border-electric/30 shadow-electric";
+        return "bg-gradient-card-electric border-electric/30 shadow-electric backdrop-blur-sm";
       case "energy":
-        return "bg-gradient-energy border-energy/30 shadow-energy";
+        return "bg-gradient-card-energy border-energy/30 shadow-energy backdrop-blur-sm";
       case "warning":
-        return "bg-gradient-to-br from-warning/10 to-warning/5 border-warning/30";
+        return "bg-gradient-to-br from-warning/20 to-warning/10 border-warning/30 backdrop-blur-sm";
       default:
-        return "bg-card border-border";
+        return "bg-gradient-card-glass border-border/50 backdrop-blur-sm";
     }
   };
 

@@ -93,7 +93,7 @@ export const Dashboard = () => {
 
         {/* ROI Analysis */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <Card>
+          <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-success" />
@@ -124,7 +124,7 @@ export const Dashboard = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
                 <AlertTriangle className="h-5 w-5 text-warning" />
@@ -136,7 +136,7 @@ export const Dashboard = () => {
                 <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
                   <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
                   <div className="flex-1">
-                    <div className="font-medium text-sm">Jl. Marsma R. Iswahyudi - Low Performance</div>
+                    <div className="font-medium text-sm">Jl. Pupuk Raya - Low Performance</div>
                     <div className="text-xs text-muted-foreground">Efisiensi turun 18% dari normal</div>
                   </div>
                   <Badge variant="outline" className="text-xs border-warning text-warning">
@@ -148,7 +148,7 @@ export const Dashboard = () => {
                   <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">Maintenance Terjadwal</div>
-                    <div className="text-xs text-muted-foreground">2 lokasi - minggu depan (Jl. Ahmad Yani & Jl. Soekarno Hatta)</div>
+                    <div className="text-xs text-muted-foreground">1 lokasi - minggu depan (Jl. Ahmad Yani)</div>
                   </div>
                   <Badge variant="secondary" className="text-xs">
                     Scheduled
@@ -159,7 +159,7 @@ export const Dashboard = () => {
                   <div className="w-2 h-2 bg-success rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">All Systems Operational</div>
-                    <div className="text-xs text-muted-foreground">5 dari 6 lokasi berjalan optimal</div>
+                    <div className="text-xs text-muted-foreground">3 dari 4 lokasi berjalan optimal</div>
                   </div>
                   <Badge className="text-xs bg-success text-success-foreground">
                     Good

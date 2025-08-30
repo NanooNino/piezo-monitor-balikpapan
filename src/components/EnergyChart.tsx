@@ -18,7 +18,7 @@ const data = [
 
 export const EnergyChart = () => {
   return (
-    <Card className="col-span-1 lg:col-span-2">
+    <Card className="col-span-1 lg:col-span-2 bg-gradient-card-glass border-border/50 backdrop-blur-sm">
       <CardHeader>
         <CardTitle className="text-lg font-semibold text-foreground">
           Produksi Energi Harian

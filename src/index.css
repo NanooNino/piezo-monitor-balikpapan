@@ -8,23 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 13% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 10%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 10%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 199 89% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 94%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 12%;
+    --muted-foreground: 215.4 16.3% 65%;
+
+    --accent: 220 13% 15%;
+    --accent-foreground: 210 40% 98%;
 
     --accent: 199 89% 48%;
     --accent-foreground: 0 0% 100%;
@@ -38,8 +41,8 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
     --ring: 199 89% 48%;
 
     --radius: 0.75rem;
@@ -50,8 +53,14 @@ All colors MUST be HSL.
     --electric-blue-dark: 199 89% 28%;
     --energy-green: 142 76% 36%;
     --energy-green-light: 142 76% 56%;
-    --dashboard-bg: 210 40% 98%;
-    --sidebar-bg: 0 0% 100%;
+    --dashboard-bg: 220 13% 8%;
+    --sidebar-bg: 220 13% 10%;
+    
+    /* Futuristic Card Backgrounds */
+    --card-dark: 220 13% 10%;
+    --card-glass: 220 13% 12%;
+    --card-electric: 199 89% 8%;
+    --card-energy: 142 76% 8%;
     
     /* Gradients */
     --gradient-electric: linear-gradient(135deg, hsl(var(--electric-blue)), hsl(var(--electric-blue-light)));
@@ -59,6 +68,9 @@ All colors MUST be HSL.
     --gradient-dashboard: linear-gradient(180deg, hsl(var(--dashboard-bg)), hsl(var(--background)));
     --gradient-futuristic: linear-gradient(135deg, #000000 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, hsl(var(--electric-blue)) 100%);
     --gradient-dark-electric: linear-gradient(180deg, #000000 0%, #0a0a0a 20%, #1a1a2e 60%, hsl(var(--electric-blue) / 0.3) 100%);
+    --gradient-card-glass: linear-gradient(135deg, hsl(var(--card-glass) / 0.8), hsl(var(--card-dark) / 0.9));
+    --gradient-card-electric: linear-gradient(135deg, hsl(var(--card-electric)), hsl(var(--electric-blue) / 0.1));
+    --gradient-card-energy: linear-gradient(135deg, hsl(var(--card-energy)), hsl(var(--energy-green) / 0.1));
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
