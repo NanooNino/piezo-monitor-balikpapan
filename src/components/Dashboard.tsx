@@ -30,7 +30,7 @@ export const Dashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-white mb-2">
-                  Dashboard Monitoring Trotoar Piezoelektrik Balikpapan
+                  Piezo Monitor
                 </h1>
                 <p className="text-white/80 text-lg">
                   Sistem monitoring energi real-time untuk infrastruktur kota pintar Balikpapan
