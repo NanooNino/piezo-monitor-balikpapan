@@ -1,0 +1,167 @@
+import { StatCard } from "./StatCard";
+import { EnergyChart } from "./EnergyChart";
+import { SidewalkMap } from "./SidewalkMap";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Zap, Activity, TrendingUp, DollarSign, Users, MapPin, AlertTriangle } from "lucide-react";
+import heroImage from "@/assets/piezo-sidewalk-hero.jpg";
+
+export const Dashboard = () => {
+  return (
+    <div className="min-h-screen bg-gradient-dashboard">
+      {/* Header Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-electric">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        <div className="relative px-6 py-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold text-white mb-2">
+                  Dashboard Monitoring Trotoar Piezoelektrik
+                </h1>
+                <p className="text-white/80 text-lg">
+                  Sistem monitoring energi real-time untuk infrastruktur kota pintar
+                </p>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                  <Activity className="h-3 w-3 mr-1" />
+                  Live Data
+                </Badge>
+                <div className="text-right">
+                  <div className="text-white/80 text-sm">Last Update</div>
+                  <div className="text-white font-medium">{new Date().toLocaleTimeString('id-ID')}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Dashboard Content */}
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Key Metrics */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <StatCard
+            title="Total Energi Hari Ini"
+            value="12.4"
+            unit="kWh"
+            change={8.2}
+            icon={Zap}
+            variant="electric"
+          />
+          <StatCard
+            title="Efisiensi Rata-rata"
+            value="87"
+            unit="%"
+            change={3.1}
+            icon={Activity}
+            variant="energy"
+          />
+          <StatCard
+            title="Penghematan Biaya"
+            value="Rp 2.4"
+            unit="juta"
+            change={12.5}
+            icon={DollarSign}
+          />
+          <StatCard
+            title="Total Pejalan Kaki"
+            value="1,248"
+            unit="orang"
+            change={-2.1}
+            icon={Users}
+          />
+        </div>
+
+        {/* Charts and Map */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <EnergyChart />
+          <SidewalkMap />
+        </div>
+
+        {/* ROI Analysis */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-success" />
+                Analisis ROI
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Investasi Total</span>
+                  <span className="font-semibold">Rp 2.4 Miliar</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Penghematan/Bulan</span>
+                  <span className="font-semibold text-success">Rp 72 Juta</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-muted-foreground">Payback Period</span>
+                  <span className="font-semibold">2.8 Tahun</span>
+                </div>
+                <div className="pt-4 border-t">
+                  <div className="w-full bg-muted rounded-full h-2">
+                    <div className="bg-gradient-energy h-2 rounded-full w-1/3"></div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-2">Progress: 33% dari target ROI</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-warning" />
+                Alert & Maintenance
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
+                  <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">Jl. Kuningan - Low Performance</div>
+                    <div className="text-xs text-muted-foreground">Efisiensi turun 15% dari normal</div>
+                  </div>
+                  <Badge variant="outline" className="text-xs border-warning text-warning">
+                    Medium
+                  </Badge>
+                </div>
+                
+                <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
+                  <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">Maintenance Terjadwal</div>
+                    <div className="text-xs text-muted-foreground">3 lokasi - minggu depan</div>
+                  </div>
+                  <Badge variant="secondary" className="text-xs">
+                    Scheduled
+                  </Badge>
+                </div>
+
+                <div className="flex items-center space-x-3 p-3 bg-success/10 rounded-lg border border-success/20">
+                  <div className="w-2 h-2 bg-success rounded-full"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">All Systems Operational</div>
+                    <div className="text-xs text-muted-foreground">4 dari 5 lokasi berjalan optimal</div>
+                  </div>
+                  <Badge className="text-xs bg-success text-success-foreground">
+                    Good
+                  </Badge>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
