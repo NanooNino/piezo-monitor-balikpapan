@@ -99,7 +99,7 @@ export const StatCard = ({
               "text-xs ml-2",
               variant === "electric" || variant === "energy" ? "text-white/70" : "text-muted-foreground"
             )}>
-              dari bulan lalu
+              dari kemaren
             </span>
           </div>
         )}
