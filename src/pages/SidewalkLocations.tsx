@@ -48,11 +48,19 @@ export const SidewalkLocations = () => {
 
   // Auto-pagination effect
   useEffect(() => {
+    console.log('Setting up auto-pagination interval');
     const interval = setInterval(() => {
-      setCurrentPage(prev => prev === totalPages ? 1 : prev + 1);
+      setCurrentPage(prev => {
+        const nextPage = prev === totalPages ? 1 : prev + 1;
+        console.log(`Auto-pagination: changing from page ${prev} to page ${nextPage}`);
+        return nextPage;
+      });
     }, 5000); // Change page every 5 seconds
 
-    return () => clearInterval(interval);
+    return () => {
+      console.log('Cleaning up auto-pagination interval');
+      clearInterval(interval);
+    };
   }, [totalPages]);
 
   const getCurrentPageData = () => {
