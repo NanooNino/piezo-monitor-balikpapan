@@ -4,8 +4,10 @@ import { EnergyChart } from "./EnergyChart";
 import { RegionPerformance } from "./RegionPerformance";
 import { SidewalkMap } from "./SidewalkMap";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Zap, Activity, TrendingUp, DollarSign, Users, MapPin, AlertTriangle } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/piezo-sidewalk-hero.jpg";
 
 export const Dashboard = () => {
@@ -37,6 +39,12 @@ export const Dashboard = () => {
                 </p>
               </div>
               <div className="flex items-center space-x-4">
+                <Link to="/sidewalk-locations">
+                  <Button variant="outline" className="bg-white/20 text-white border-white/30 hover:bg-white/30">
+                    <MapPin className="h-4 w-4 mr-2" />
+                    Lihat Semua Lokasi
+                  </Button>
+                </Link>
                 <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
                   <Activity className="h-3 w-3 mr-1" />
                   Live Data
