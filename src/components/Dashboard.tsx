@@ -59,7 +59,7 @@ export const Dashboard = () => {
             title="Total Energi Hari Ini"
             value="8.7"
             unit="kWh"
-            change={8.2}
+            change={4.3}
             icon={Zap}
             variant="electric"
           />
@@ -166,7 +166,7 @@ export const Dashboard = () => {
                   <div className="w-2 h-2 bg-success rounded-full"></div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">All Systems Operational</div>
-                    <div className="text-xs text-muted-foreground">3 dari 4 lokasi berjalan optimal</div>
+                    <div className="text-xs text-muted-foreground">23 dari 26 lokasi berjalan optimal</div>
                   </div>
                   <Badge className="text-xs bg-success text-success-foreground">
                     Good
