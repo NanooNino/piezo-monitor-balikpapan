@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -45,6 +45,15 @@ export const SidewalkLocations = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const totalPages = Math.ceil(sidewalkData.length / itemsPerPage);
+
+  // Auto-pagination effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPage(prev => prev === totalPages ? 1 : prev + 1);
+    }, 5000); // Change page every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [totalPages]);
 
   const getCurrentPageData = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -115,32 +124,37 @@ export const SidewalkLocations = () => {
 
       {/* Main Content */}
       <div className="relative max-w-7xl mx-auto px-6 py-8 z-10">
-        {/* Page Navigation */}
+        {/* Page Navigation - Auto Pagination Info */}
         <div className="flex items-center justify-between mb-6">
           <div className="text-white/80">
             Halaman {currentPage} dari {totalPages} (Menampilkan {getCurrentPageData().length} dari {sidewalkData.length} lokasi)
           </div>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-              disabled={currentPage === 1}
-              className="text-white border-white/30 hover:bg-white/20"
-            >
-              <ChevronLeft className="h-4 w-4" />
-              Sebelumnya
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-              disabled={currentPage === totalPages}
-              className="text-white border-white/30 hover:bg-white/20"
-            >
-              Selanjutnya
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+          <div className="flex items-center gap-4">
+            <div className="text-white/60 text-sm">
+              Halaman berganti otomatis setiap 5 detik
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+                className="text-white border-white/30 hover:bg-white/20"
+              >
+                <ChevronLeft className="h-4 w-4" />
+                Sebelumnya
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+                className="text-white border-white/30 hover:bg-white/20"
+              >
+                Selanjutnya
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </div>
 
