@@ -117,37 +117,64 @@ export const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
-                  <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">Efisiensi Menurun</div>
-                    <div className="text-xs text-muted-foreground">Jl. Pupuk Raya - Perlu maintenance segera</div>
+                <div className="border-l-4 border-warning pl-4 py-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-medium text-sm">Penurunan Efisiensi</h4>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs border-warning text-warning">
+                        Aktif
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">2 jam yang lalu</span>
+                    </div>
                   </div>
-                  <Badge variant="outline" className="text-xs border-warning text-warning">
-                    Urgent
-                  </Badge>
-                </div>
-                
-                <div className="flex items-center space-x-3 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">Update Sistem</div>
-                    <div className="text-xs text-muted-foreground">Pembaruan firmware tersedia untuk 8 lokasi</div>
-                  </div>
-                  <Badge variant="secondary" className="text-xs">
-                    Info
-                  </Badge>
+                  <p className="text-xs text-muted-foreground">
+                    Jl. Pupuk Raya menunjukkan penurunan efisiensi 18% dalam 3 hari terakhir
+                  </p>
                 </div>
 
-                <div className="flex items-center space-x-3 p-3 bg-success/10 rounded-lg border border-success/20">
-                  <div className="w-2 h-2 bg-success rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">Sistem Normal</div>
-                    <div className="text-xs text-muted-foreground">18 lokasi beroperasi dengan optimal</div>
+                <div className="border-l-4 border-blue-500 pl-4 py-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-medium text-sm">Maintenance Terjadwal</h4>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="secondary" className="text-xs">
+                        Terjadwal
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">6 jam yang lalu</span>
+                    </div>
                   </div>
-                  <Badge className="text-xs bg-success text-success-foreground">
-                    OK
-                  </Badge>
+                  <p className="text-xs text-muted-foreground">
+                    Pemeliharaan rutin trotoar Jl. Ahmad Yani akan dilakukan besok pukul 02:00
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-success pl-4 py-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-medium text-sm">Target Tercapai</h4>
+                    <div className="flex items-center gap-2">
+                      <Badge className="text-xs bg-success text-success-foreground">
+                        Selesai
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">1 hari yang lalu</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Jl. Soekarno Hatta mencapai 108% dari target produksi energi harian
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-destructive pl-4 py-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-medium text-sm">Sensor Offline</h4>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="destructive" className="text-xs">
+                        Kritis
+                      </Badge>
+                      <span className="text-xs text-muted-foreground">3 jam yang lalu</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    2 sensor di area Balikpapan Timur tidak merespons sejak pagi ini
+                  </p>
                 </div>
               </div>
             </CardContent>
