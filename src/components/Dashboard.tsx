@@ -117,23 +117,37 @@ export const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Investasi Total</span>
-                  <span className="font-semibold">Rp 1.8 Miliar</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Penghematan/Bulan</span>
-                  <span className="font-semibold text-success">Rp 54 Juta</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Payback Period</span>
-                  <span className="font-semibold">3.1 Tahun</span>
-                </div>
-                <div className="pt-4 border-t">
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div className="bg-gradient-energy h-2 rounded-full w-[28%]"></div>
+                <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
+                  <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">Efisiensi Menurun</div>
+                    <div className="text-xs text-muted-foreground">Jl. Pupuk Raya - Perlu maintenance segera</div>
                   </div>
-                  <p className="text-xs text-muted-foreground mt-2">Progress: 28% dari target ROI</p>
+                  <Badge variant="outline" className="text-xs border-warning text-warning">
+                    Urgent
+                  </Badge>
+                </div>
+                
+                <div className="flex items-center space-x-3 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">Update Sistem</div>
+                    <div className="text-xs text-muted-foreground">Pembaruan firmware tersedia untuk 8 lokasi</div>
+                  </div>
+                  <Badge variant="secondary" className="text-xs">
+                    Info
+                  </Badge>
+                </div>
+
+                <div className="flex items-center space-x-3 p-3 bg-success/10 rounded-lg border border-success/20">
+                  <div className="w-2 h-2 bg-success rounded-full"></div>
+                  <div className="flex-1">
+                    <div className="font-medium text-sm">Sistem Normal</div>
+                    <div className="text-xs text-muted-foreground">18 lokasi beroperasi dengan optimal</div>
+                  </div>
+                  <Badge className="text-xs bg-success text-success-foreground">
+                    OK
+                  </Badge>
                 </div>
               </div>
             </CardContent>
