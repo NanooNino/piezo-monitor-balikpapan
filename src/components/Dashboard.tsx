@@ -112,7 +112,7 @@ export const Dashboard = () => {
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-success" />
-                Analisis ROI
+                Notifikasi & Peringatan
               </CardTitle>
             </CardHeader>
             <CardContent>
