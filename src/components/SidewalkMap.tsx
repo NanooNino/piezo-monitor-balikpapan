@@ -84,7 +84,7 @@ export const SidewalkMap = () => {
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <div className="text-white/70">Total Lokasi</div>
-              <div className="font-bold">{sidewalkData.length} Trotoar</div>
+              <div className="font-bold">26 Trotoar</div>
             </div>
             <div>
               <div className="text-white/70">Rata-rata Efisiensi</div>
