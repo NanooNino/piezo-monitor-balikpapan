@@ -111,7 +111,7 @@ export const Dashboard = () => {
           <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-success" />
+                <AlertTriangle className="h-5 w-5 text-warning" />
                 Notifikasi & Peringatan
               </CardTitle>
             </CardHeader>
