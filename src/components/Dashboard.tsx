@@ -106,8 +106,8 @@ export const Dashboard = () => {
           <RegionPerformance />
         </div>
 
-        {/* ROI Analysis */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Notifications Section */}
+        <div className="grid grid-cols-1 gap-6">
           <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
@@ -175,51 +175,6 @@ export const Dashboard = () => {
                   <p className="text-xs text-muted-foreground">
                     2 sensor di area Balikpapan Timur tidak merespons sejak pagi ini
                   </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
-            <CardHeader>
-              <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
-                <AlertTriangle className="h-5 w-5 text-warning" />
-                Alert & Maintenance
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3 p-3 bg-warning/10 rounded-lg border border-warning/20">
-                  <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">Jl. Pupuk Raya - Maintenance</div>
-                    <div className="text-xs text-muted-foreground">Efisiensi turun 18% dari normal</div>
-                  </div>
-                  <Badge variant="outline" className="text-xs border-warning text-warning">
-                    High
-                  </Badge>
-                </div>
-                
-                <div className="flex items-center space-x-3 p-3 bg-muted/50 rounded-lg">
-                  <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">Maintenance Terjadwal</div>
-                    <div className="text-xs text-muted-foreground">1 lokasi - minggu depan (Jl. Ahmad Yani)</div>
-                  </div>
-                  <Badge variant="secondary" className="text-xs">
-                    Scheduled
-                  </Badge>
-                </div>
-
-                <div className="flex items-center space-x-3 p-3 bg-success/10 rounded-lg border border-success/20">
-                  <div className="w-2 h-2 bg-success rounded-full"></div>
-                  <div className="flex-1">
-                    <div className="font-medium text-sm">All Systems Operational</div>
-                    <div className="text-xs text-muted-foreground">23 dari 26 lokasi berjalan optimal</div>
-                  </div>
-                  <Badge className="text-xs bg-success text-success-foreground">
-                    Good
-                  </Badge>
                 </div>
               </div>
             </CardContent>
