@@ -186,7 +186,7 @@ export const RegionPerformance = () => {
                 {Math.round(regionData.reduce((acc, r) => acc + r.efficiency, 0) / regionData.length)}%
               </div>
             </div>
-            <div className="text-center">
+            <div className="text-center cursor-pointer hover:bg-gradient-electric/20 rounded-lg p-2 transition-all duration-300" onClick={() => window.location.href = '/sidewalk-locations'}>
               <div className="text-muted-foreground">Total Trotoar</div>
               <div className="font-bold text-foreground">
                 {regionData.reduce((acc, r) => acc + r.sidewalks, 0)}
