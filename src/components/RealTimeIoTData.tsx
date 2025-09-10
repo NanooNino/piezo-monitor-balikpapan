@@ -3,10 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase client (you'll need to replace with your actual values)
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Configuration - replace with your actual Supabase values
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+
+// Only create client if we have valid credentials
+const supabase = (supabaseUrl && supabaseAnonKey && supabaseUrl.startsWith('http')) 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 import { Zap, Users, MapPin, Clock } from 'lucide-react';
 
 interface IoTData {
@@ -26,6 +30,12 @@ export const RealTimeIoTData = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
+    // Only proceed if Supabase client is available
+    if (!supabase) {
+      console.log('Supabase not configured yet');
+      return;
+    }
+
     // Fetch initial data
     fetchLatestData();
 
@@ -53,6 +63,8 @@ export const RealTimeIoTData = () => {
   }, []);
 
   const fetchLatestData = async () => {
+    if (!supabase) return;
+    
     try {
       const { data, error } = await supabase
         .from('sidewalk_data')
@@ -94,7 +106,24 @@ export const RealTimeIoTData = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        {iotData.length === 0 ? (
+        {!supabase ? (
+          <div className="text-center py-8 text-muted-foreground">
+            <Zap className="h-12 w-12 mx-auto mb-4 opacity-50" />
+            <p className="font-medium mb-2">Konfigurasi Supabase Diperlukan</p>
+            <p className="text-sm mb-4">
+              Untuk menampilkan data real-time, silakan konfigurasi kredensial Supabase:
+            </p>
+            <div className="bg-muted/30 p-4 rounded-lg text-left text-xs space-y-2">
+              <p>1. Buka dashboard Supabase project Anda</p>
+              <p>2. Copy Project URL dan anon key</p>
+              <p>3. Tambahkan ke environment variables atau langsung di kode</p>
+              <p className="font-mono bg-muted/50 p-2 rounded">
+                VITE_SUPABASE_URL=https://your-project.supabase.co<br/>
+                VITE_SUPABASE_ANON_KEY=your-anon-key
+              </p>
+            </div>
+          </div>
+        ) : iotData.length === 0 ? (
           <div className="text-center py-8 text-muted-foreground">
             <Zap className="h-12 w-12 mx-auto mb-4 opacity-50" />
             <p>Menunggu data dari IoT device...</p>
