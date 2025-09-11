@@ -3,7 +3,7 @@ import { StatCard } from "./StatCard";
 import { EnergyChart } from "./EnergyChart";
 import { RegionPerformance } from "./RegionPerformance";
 import { SidewalkMap } from "./SidewalkMap";
-import { RealTimeIoTData } from "./RealTimeIoTData";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,9 +107,8 @@ export const Dashboard = () => {
           <RegionPerformance />
         </div>
 
-        {/* Real-time IoT Data and Notifications */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RealTimeIoTData />
+        {/* Notifications */}
+        <div className="grid grid-cols-1 gap-6">
           <Card className="bg-gradient-card-glass border-border/50 backdrop-blur-sm">
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-foreground flex items-center gap-2">
