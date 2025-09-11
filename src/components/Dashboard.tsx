@@ -3,6 +3,7 @@ import { StatCard } from "./StatCard";
 import { EnergyChart } from "./EnergyChart";
 import { RegionPerformance } from "./RegionPerformance";
 import { SidewalkMap } from "./SidewalkMap";
+import { IoTDataViewer } from "./IoTDataViewer";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -105,6 +106,11 @@ export const Dashboard = () => {
         {/* Regional Performance */}
         <div className="grid grid-cols-1 gap-6 mb-8">
           <RegionPerformance />
+        </div>
+
+        {/* IoT Data and Notifications */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <IoTDataViewer />
         </div>
 
         {/* Notifications */}
