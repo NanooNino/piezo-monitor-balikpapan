@@ -6,10 +6,10 @@
 const char* ssid = "Qisya";
 const char* password = "vitaqisya18";
 
-// Supabase configuration - GANTI DENGAN URL SUPABASE ANDA
-const char* supabaseUrl = "https://your-project-ref.supabase.co";
-const char* supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY";
-const char* functionUrl = "https://your-project-ref.supabase.co/functions/v1/receive-iot-data";
+// Supabase configuration - URL sudah disesuaikan dengan project Anda
+const char* supabaseUrl = "https://sotmyfumfmuvzewoezhp.supabase.co";
+const char* supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNvdG15ZnVtZm11dnpld29lemhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1MDEyNzEsImV4cCI6MjA3MzA3NzI3MX0._nZexm7pdedOzO9zPNp9xNyvLtaJd0K-_THkwcO7Kzs";
+const char* functionUrl = "https://sotmyfumfmuvzewoezhp.supabase.co/functions/v1/receive-iot-data";
 
 // Location data
 const char* lokasi = "Jl. MT Haryono";
