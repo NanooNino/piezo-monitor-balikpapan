@@ -3,6 +3,10 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const openAIApiKey = Deno.env.get('OPENAI_API_KEY');
 
+if (!openAIApiKey) {
+  console.error('OPENAI_API_KEY is not set');
+}
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
@@ -15,7 +19,15 @@ serve(async (req) => {
   }
 
   try {
+    if (!openAIApiKey) {
+      throw new Error('OpenAI API key not configured');
+    }
+
     const { data } = await req.json();
+
+    if (!data || !Array.isArray(data)) {
+      throw new Error('Invalid data format provided');
+    }
 
     console.log('Analyzing sidewalk data for', data.length, 'records');
 
@@ -95,8 +107,15 @@ Berikan insight yang spesifik dan actionable, bukan general. Gunakan bahasa Indo
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error('OpenAI API error:', errorData);
-      throw new Error(`OpenAI API error: ${response.status}`);
+      console.error('OpenAI API error:', response.status, errorData);
+      
+      if (response.status === 401) {
+        throw new Error('OpenAI API key is invalid or expired');
+      } else if (response.status === 429) {
+        throw new Error('OpenAI API rate limit exceeded');
+      } else {
+        throw new Error(`OpenAI API error: ${response.status} - ${errorData}`);
+      }
     }
 
     const aiResponse = await response.json();

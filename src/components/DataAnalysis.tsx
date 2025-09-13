@@ -57,9 +57,16 @@ const DataAnalysis = () => {
         body: { data: recentData }
       });
 
+      if (response.error) {
+        console.error('Edge function error:', response.error);
+        throw new Error(response.error.message || 'Failed to analyze data');
+      }
+
       if (response.data?.analysis) {
         setAnalysis(response.data.analysis);
         setLastUpdate(new Date().toLocaleString('id-ID'));
+      } else {
+        throw new Error('No analysis data received');
       }
     } catch (error) {
       console.error('Error generating analysis:', error);
