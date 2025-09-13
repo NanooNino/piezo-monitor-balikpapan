@@ -4,6 +4,7 @@ import { EnergyChart } from "./EnergyChart";
 import { RegionPerformance } from "./RegionPerformance";
 import { SidewalkMap } from "./SidewalkMap";
 import { IoTDataViewer } from "./IoTDataViewer";
+import DataAnalysis from "./DataAnalysis";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -108,10 +109,13 @@ export const Dashboard = () => {
           <RegionPerformance />
         </div>
 
-        {/* IoT Data and Notifications */}
+        {/* IoT Data */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <IoTDataViewer />
         </div>
+
+        {/* Data Analysis & Action Plans */}
+        <DataAnalysis />
 
         {/* Notifications */}
         <div className="grid grid-cols-1 gap-6">
