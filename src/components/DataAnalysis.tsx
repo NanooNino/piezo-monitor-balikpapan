@@ -157,36 +157,6 @@ const DataAnalysis = () => {
             <p className="text-gray-700 leading-relaxed">{analysis.summary}</p>
           </Card>
 
-          {/* Trends */}
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center">
-              <TrendingUp className="h-5 w-5 mr-2 text-green-500" />
-              Tren Data
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <span className="font-medium">Produksi Energi</span>
-                <div className="flex items-center space-x-2">
-                  {getTrendIcon(analysis.trends.energy)}
-                  <span className="text-sm capitalize">{analysis.trends.energy}</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <span className="font-medium">Efisiensi</span>
-                <div className="flex items-center space-x-2">
-                  {getTrendIcon(analysis.trends.efficiency)}
-                  <span className="text-sm capitalize">{analysis.trends.efficiency}</span>
-                </div>
-              </div>
-              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <span className="font-medium">Pejalan Kaki</span>
-                <div className="flex items-center space-x-2">
-                  {getTrendIcon(analysis.trends.pedestrians)}
-                  <span className="text-sm capitalize">{analysis.trends.pedestrians}</span>
-                </div>
-              </div>
-            </div>
-          </Card>
 
           {/* Insights */}
           <Card className="p-6">
