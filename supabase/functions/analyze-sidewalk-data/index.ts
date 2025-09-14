@@ -19,16 +19,52 @@ serve(async (req) => {
   }
 
   try {
-    if (!openAIApiKey) {
-      throw new Error('OpenAI API key not configured');
-    }
+    // Local heuristic analysis used when AI is unavailable
+    const buildHeuristicAnalysis = (rows: any[]) => {
+      const sum = (arr: any[], key: string) => arr.reduce((s, it) => s + Number(it?.[key] ?? 0), 0);
+      const toNumber = (v: any) => Number(v ?? 0);
+
+      const totalEnergy = rows.reduce((s, it) => s + toNumber(it.energi_harian), 0);
+      const avgEfficiency = rows.length ? rows.reduce((s, it) => s + toNumber(it.efisiensi), 0) / rows.length : 0;
+      const totalPedestrians = rows.reduce((s, it) => s + toNumber(it.pejalan_kaki_per_hari), 0);
+      const locations = [...new Set(rows.map((it) => it.lokasi))];
+      const recent = rows.slice(0, 10);
+      const older = rows.slice(10, 20);
+
+      const rel = (newV: number, oldV: number) => {
+        const base = Math.max(Math.abs(oldV), 1);
+        const r = (newV - oldV) / base;
+        return r > 0.05 ? 'up' : r < -0.05 ? 'down' : 'stable';
+      };
+
+      const energyTrend = rel(sum(recent, 'energi_harian'), sum(older, 'energi_harian'));
+      const effTrend = rel(sum(recent, 'efisiensi'), sum(older, 'efisiensi'));
+      const pedTrend = rel(sum(recent, 'pejalan_kaki_per_hari'), sum(older, 'pejalan_kaki_per_hari'));
+
+      return {
+        summary: `Sistem menghasilkan total ${totalEnergy.toFixed(2)} kWh dengan efisiensi rata-rata ${avgEfficiency.toFixed(1)}% di ${locations.length} lokasi.`,
+        trends: { energy: energyTrend, efficiency: effTrend, pedestrians: pedTrend },
+        insights: [
+          `Total energi ${totalEnergy.toFixed(2)} kWh dari ${totalPedestrians} pejalan kaki.`,
+          `Efisiensi rata-rata ${avgEfficiency.toFixed(1)}% menunjukkan performa ${effTrend === 'up' ? 'meningkat' : effTrend === 'down' ? 'menurun' : 'stabil'}.`,
+          `${locations.length} lokasi aktif: ${locations.slice(0,5).join(', ')}${locations.length>5?'...':''}.`
+        ],
+        actionPlans: [
+          { priority: 'medium', title: 'Kalibrasi Sensor', description: 'Kalibrasi sensor di lokasi dengan efisiensi menurun untuk menstabilkan output.', timeframe: '2 minggu' },
+          { priority: 'low', title: 'Optimasi Penempatan', description: 'Evaluasi ulang lokasi dengan traffic rendah untuk potensi relokasi.', timeframe: '1 bulan' }
+        ],
+        recommendations: [
+          'Terapkan monitoring harian dan alert anomali.',
+          'Jadwalkan maintenance berkala.',
+          'Analisis pola jam sibuk untuk penguatan struktur.'
+        ]
+      };
+    };
 
     const { data } = await req.json();
-
     if (!data || !Array.isArray(data)) {
       throw new Error('Invalid data format provided');
     }
-
     console.log('Analyzing sidewalk data for', data.length, 'records');
 
     // Calculate basic statistics
@@ -39,6 +75,15 @@ serve(async (req) => {
     const locations = [...new Set(data.map((item: any) => item.lokasi))];
     const recentData = data.slice(0, 10);
     const olderData = data.slice(10, 20);
+
+    // If OPENAI_API_KEY is missing, return heuristic analysis instead of error
+    if (!openAIApiKey) {
+      const analysis = buildHeuristicAnalysis(data);
+      console.warn('OPENAI_API_KEY not set. Returning heuristic analysis.');
+      return new Response(JSON.stringify({ analysis, meta: { source: 'heuristic', warning: 'OPENAI_API_KEY tidak tersedia. Menggunakan analisis heuristik.' } }), {
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
 
     const prompt = `
 Analisis data trotoar piezoelectric berikut dan berikan insights yang actionable:
@@ -85,6 +130,7 @@ Fokus pada:
 Berikan insight yang spesifik dan actionable, bukan general. Gunakan bahasa Indonesia.
 `;
 
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -108,14 +154,16 @@ Berikan insight yang spesifik dan actionable, bukan general. Gunakan bahasa Indo
     if (!response.ok) {
       const errorData = await response.text();
       console.error('OpenAI API error:', response.status, errorData);
-      
-      if (response.status === 401) {
-        throw new Error('OpenAI API key is invalid or expired');
-      } else if (response.status === 429) {
-        throw new Error('OpenAI API rate limit exceeded');
-      } else {
-        throw new Error(`OpenAI API error: ${response.status} - ${errorData}`);
+      if (response.status === 401 || response.status === 429) {
+        const analysis = buildHeuristicAnalysis(data);
+        const warning = response.status === 401 
+          ? 'API key OpenAI tidak valid atau kadaluarsa. Menggunakan analisis heuristik.' 
+          : 'Kuota OpenAI habis. Menggunakan analisis heuristik.';
+        return new Response(JSON.stringify({ analysis, meta: { source: 'heuristic', warning } }), {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        });
       }
+      throw new Error(`OpenAI API error: ${response.status} - ${errorData}`);
     }
 
     const aiResponse = await response.json();
