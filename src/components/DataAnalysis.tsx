@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useToast } from "@/hooks/use-toast";
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -35,6 +36,7 @@ const DataAnalysis = () => {
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [lastUpdate, setLastUpdate] = useState<string>("");
+  const { toast } = useToast();
 
   useEffect(() => {
     generateAnalysis();
@@ -59,17 +61,31 @@ const DataAnalysis = () => {
 
       if (response.error) {
         console.error('Edge function error:', response.error);
+        toast({
+          title: "Error Analisis",
+          description: response.error.message || "Gagal menganalisis data",
+          variant: "destructive",
+        });
         throw new Error(response.error.message || 'Failed to analyze data');
       }
 
       if (response.data?.analysis) {
         setAnalysis(response.data.analysis);
         setLastUpdate(new Date().toLocaleString('id-ID'));
+        toast({
+          title: "Analisis Berhasil",
+          description: "Data telah dianalisis dengan AI",
+        });
       } else {
         throw new Error('No analysis data received');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error generating analysis:', error);
+      toast({
+        title: "Error Analisis",
+        description: error.message || "Gagal menganalisis data. Periksa konfigurasi API key.",
+        variant: "destructive",
+      });
       // Fallback analysis
       setAnalysis({
         summary: "Analisis otomatis tidak tersedia. Silakan refresh untuk mencoba lagi.",
